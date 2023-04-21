@@ -1,0 +1,30 @@
+.keyboard_wrapper {
+  max-width: 1050px;
+  width: 100%;
+  background-color: #e7e7e7;
+  overflow: hidden;
+  position: relative;
+  order: 2;
+}
+
+.keyboard__row {
+  display: flex;
+}
+
+.keys {
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px;
+  transition: .2s;
+  z-index: 5;
+}
+
+.keys--backspace {
+  width: 120px;
+  flex-grow: 2;
+
+}
