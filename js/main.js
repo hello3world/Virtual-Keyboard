@@ -1,31 +1,31 @@
-//create div with class container
-let container = document.createElement('div');
+// create div with class container
+const container = document.createElement('div');
 container.className = 'container';
 document.body.prepend(container);
-//create heading for container
-let heading = document.createElement("h1");
+// create heading for container
+const heading = document.createElement('h1');
 heading.className = 'heading';
 heading.textContent = 'Virtual keyboard';
 container.append(heading);
-//create textarea for container
-let textarea = document.createElement("textarea");
+// create textarea for container
+const textarea = document.createElement('textarea');
 textarea.className = 'textarea';
 textarea.rows = 10;
 container.append(textarea);
-//create div with class keyboard__wrapper
-let keyboardWrapper = document.createElement('div');
+// create div with class keyboard__wrapper
+const keyboardWrapper = document.createElement('div');
 keyboardWrapper.className = 'keyboard__wrapper';
 container.append(keyboardWrapper);
-//create div with class keyboard__keys
-let keyboardKeys = document.createElement('div');
+// create div with class keyboard__keys
+const keyboardKeys = document.createElement('div');
 keyboardKeys.className = 'keyboard__keys';
 keyboardWrapper.append(keyboardKeys);
-//create div with class keyboard__row
-let keyboardRow = document.createElement('div');
+// create div with class keyboard__row
+const keyboardRow = document.createElement('div');
 keyboardRow.className = 'keyboard__row';
 keyboardKeys.append(keyboardRow);
-//create first row in keyboard
-let firstRowChars = ['`',
+// create first row in keyboard
+const firstRowChars = ['`',
   '1',
   '2',
   '3',
@@ -40,26 +40,28 @@ let firstRowChars = ['`',
   '=',
   'Backspace'];
 
-//create div with class keys and fill first row of keyboard
-for (let i = 0; i < firstRowChars.length; i++) {
-  let key = document.createElement('div');
+// create div with class keys and fill first row of keyboard
+for (let i = 0; i < firstRowChars.length; i += 1) {
+  const key = document.createElement('div');
   key.className = 'keys';
   key.textContent = firstRowChars[i];
 
   switch (firstRowChars[i]) {
     case 'Backspace':
       key.className = 'keys keys--backspace';
+      break;
+    // no default
   }
 
   keyboardRow.append(key);
 }
 
-//create div with class keyboard__row
-let keyboardRow1 = document.createElement('div');
+// create div with class keyboard__row
+const keyboardRow1 = document.createElement('div');
 keyboardRow1.className = 'keyboard__row';
 keyboardKeys.append(keyboardRow1);
-//create second row in keyboard
-let secondRowChars = ['Tab',
+// create second row in keyboard
+const secondRowChars = ['Tab',
   'q',
   'w',
   'e',
@@ -75,9 +77,9 @@ let secondRowChars = ['Tab',
   '\\',
   'Del'];
 
-//fill second row of keyboard
-for (let i = 0; i < secondRowChars.length; i++) {
-  let key = document.createElement('div');
+// fill second row of keyboard
+for (let i = 0; i < secondRowChars.length; i += 1) {
+  const key = document.createElement('div');
   key.className = 'keys';
   key.textContent = secondRowChars[i];
 
@@ -85,20 +87,22 @@ for (let i = 0; i < secondRowChars.length; i++) {
     case 'Tab':
       key.className = 'keys keys--tab';
       break;
+    // no default
     case 'Del':
       key.className = 'keys keys--del';
       break;
+    // no default
   }
 
   keyboardRow1.append(key);
 }
 
-//create div with class keyboard__row
-let keyboardRow2 = document.createElement('div');
+// create div with class keyboard__row
+const keyboardRow2 = document.createElement('div');
 keyboardRow2.className = 'keyboard__row';
 keyboardKeys.append(keyboardRow2);
-//create third row in keyboard
-let thirdRowChars = ['Caps Lock',
+// create third row in keyboard
+const thirdRowChars = ['Caps Lock',
   'a',
   's',
   'd',
@@ -112,9 +116,9 @@ let thirdRowChars = ['Caps Lock',
   '\'',
   'Enter'];
 
-//fill third row of keyboard
-for (let i = 0; i < thirdRowChars.length; i++) {
-  let key = document.createElement('div');
+// fill third row of keyboard
+for (let i = 0; i < thirdRowChars.length; i += 1) {
+  const key = document.createElement('div');
   key.className = 'keys';
   key.textContent = thirdRowChars[i];
 
@@ -122,20 +126,22 @@ for (let i = 0; i < thirdRowChars.length; i++) {
     case 'Caps Lock':
       key.className = 'keys keys--capslock';
       break;
+    // no default
     case 'Enter':
       key.className = 'keys keys--enter';
       break;
+    // no default
   }
 
   keyboardRow2.append(key);
 }
 
-//create div with class keyboard__row
-let keyboardRow3 = document.createElement('div');
+// create div with class keyboard__row
+const keyboardRow3 = document.createElement('div');
 keyboardRow3.className = 'keyboard__row';
 keyboardKeys.append(keyboardRow3);
-//create fourth row in keyboard
-let fourthRowChars = ['Shift-left',
+// create fourth row in keyboard
+const fourthRowChars = ['Shift-left',
   'z',
   'x',
   'c',
@@ -149,11 +155,11 @@ let fourthRowChars = ['Shift-left',
   '&#9650;',
   'Shift-right'];
 
-//fill fourth row of keyboard
-for (let i = 0; i < fourthRowChars.length; i++) {
-  let key = document.createElement('div');
+// fill fourth row of keyboard
+for (let i = 0; i < fourthRowChars.length; i += 1) {
+  const key = document.createElement('div');
   key.className = 'keys';
-  if (fourthRowChars[i] == 'Shift-left' || fourthRowChars[i] == 'Shift-right') {
+  if (fourthRowChars[i] === 'Shift-left' || fourthRowChars[i] === 'Shift-right') {
     key.innerHTML = 'Shift';
   } else {
     key.innerHTML = fourthRowChars[i];
@@ -163,23 +169,26 @@ for (let i = 0; i < fourthRowChars.length; i++) {
     case '&#9650;':
       key.className = 'keys keys--arrowUp';
       break;
+    // no default
     case 'Shift-left':
       key.className = 'keys keys--shift keys--shift-left';
       break;
+    // no default
     case 'Shift-right':
       key.className = 'keys keys--shift keys--shift-right';
       break;
+    // no default
   }
 
   keyboardRow3.append(key);
 }
 
-//create div with class keyboard__row
-let keyboardRow4 = document.createElement('div');
+// create div with class keyboard__row
+const keyboardRow4 = document.createElement('div');
 keyboardRow4.className = 'keyboard__row';
 keyboardKeys.append(keyboardRow4);
-//create fifth row in keyboard
-let fifthRowChars = ['Ctrl-left',
+// create fifth row in keyboard
+const fifthRowChars = ['Ctrl-left',
   'Win',
   'Alt-left',
   ' ',
@@ -189,13 +198,13 @@ let fifthRowChars = ['Ctrl-left',
   '&#9658;',
   'Ctrl-right'];
 
-//fill fifth row of keyboard
-for (let i = 0; i < fifthRowChars.length; i++) {
-  let key = document.createElement('div');
+// fill fifth row of keyboard
+for (let i = 0; i < fifthRowChars.length; i += 1) {
+  const key = document.createElement('div');
   key.className = 'keys';
-  if (fifthRowChars[i] == 'Ctrl-left' || fifthRowChars[i] == 'Ctrl-right') {
+  if (fifthRowChars[i] === 'Ctrl-left' || fifthRowChars[i] === 'Ctrl-right') {
     key.innerHTML = 'Ctrl';
-  } else if (fifthRowChars[i] == 'Alt-left' || fifthRowChars[i] == 'Alt-right') {
+  } else if (fifthRowChars[i] === 'Alt-left' || fifthRowChars[i] === 'Alt-right') {
     key.innerHTML = 'Alt';
   } else {
     key.innerHTML = fifthRowChars[i];
@@ -205,178 +214,183 @@ for (let i = 0; i < fifthRowChars.length; i++) {
     case ' ':
       key.className = 'keys keys--space';
       break;
+    // no default
     case '&#9668;':
       key.className = 'keys keys--arrowLeft';
       break;
+    // no default
     case '&#9660;':
       key.className = 'keys keys--arrowDown';
       break;
+    // no default
     case '&#9658;':
       key.className = 'keys keys--arrowRight';
       break;
+    // no default
     case 'Ctrl-left':
       key.className = 'keys keys--ctrl-left';
       break;
+    // no default
     case 'Ctrl-right':
       key.className = 'keys keys--ctrl-right';
       break;
+    // no default
     case 'Alt-left':
       key.className = 'keys keys--alt-left';
       break;
+    // no default
     case 'Alt-right':
       key.className = 'keys keys--alt-right';
       break;
+    // no default
     case 'Win':
       key.className = 'keys keys--win';
       break;
+    // no default
   }
 
   keyboardRow4.append(key);
 }
 
-//create info about keyboard
-let info = document.createElement('p');
+// create info about keyboard
+const info = document.createElement('p');
 info.className = 'info';
 info.innerHTML = 'Клавиатура создана в операционной системе Windows<br>Для переключения языка комбинация: левыe shift + alt';
 container.insertAdjacentElement('beforeEnd', info);
 
-//create array of key
-let keys = document.querySelectorAll('.keys');
+// create array of key
+const keys = document.querySelectorAll('.keys');
 
-//add new attribute keyname for elements
-for (let i = 0; i < keys.length; i++) {
+// add new attribute keyname for elements
+for (let i = 0; i < keys.length; i += 1) {
   keys[i].setAttribute('keyname', keys[i].innerText);
 }
 
-//create elements for special key
-let space = document.querySelector('.keys--space');
-let del = document.querySelector('.keys--del');
-let tab = document.querySelector('.keys--tab');
-let backspace = document.querySelector('.keys--backspace');
-let capslock = document.querySelector('.keys--capslock');
-let enter = document.querySelector('.keys--enter');
-let keyShiftLeft = document.querySelector('.keys--shift-left');
-let keyShiftRight = document.querySelector('.keys--shift-right');
-let keyArrowUp = document.querySelector('.keys--arrowUp');
-let keyArrowLeft = document.querySelector('.keys--arrowLeft');
-let keyArrowDown = document.querySelector('.keys--arrowDown');
-let keyArrowRight = document.querySelector('.keys--arrowRight');
-let keyCtrlLeft = document.querySelector('.keys--ctrl-left');
-let keyCtrlRight = document.querySelector('.keys--ctrl-right');
-let keyAltLeft = document.querySelector('.keys--alt-left');
-let keyAltRight = document.querySelector('.keys--alt-right');
-let keyWin = document.querySelector('.keys--win');
-
-window.addEventListener('keydown', function (e) {
-  for (let i = 0; i < keys.length; i++) {
-    if ((e.key == keys[i].getAttribute('keyname') || e.key == keys[i].getAttribute('lowerCaseName')) && e.key != 'Alt') {
+// create elements for special key
+const space = document.querySelector('.keys--space');
+const del = document.querySelector('.keys--del');
+const tab = document.querySelector('.keys--tab');
+const backspace = document.querySelector('.keys--backspace');
+const capslock = document.querySelector('.keys--capslock');
+const enter = document.querySelector('.keys--enter');
+const keyShiftLeft = document.querySelector('.keys--shift-left');
+const keyShiftRight = document.querySelector('.keys--shift-right');
+const keyArrowUp = document.querySelector('.keys--arrowUp');
+const keyArrowLeft = document.querySelector('.keys--arrowLeft');
+const keyArrowDown = document.querySelector('.keys--arrowDown');
+const keyArrowRight = document.querySelector('.keys--arrowRight');
+const keyCtrlLeft = document.querySelector('.keys--ctrl-left');
+const keyCtrlRight = document.querySelector('.keys--ctrl-right');
+const keyAltLeft = document.querySelector('.keys--alt-left');
+const keyAltRight = document.querySelector('.keys--alt-right');
+const keyWin = document.querySelector('.keys--win');
+window.addEventListener('keydown', (e) => {
+  for (let i = 0; i < keys.length; i += 1) {
+    if ((e.key === keys[i].getAttribute('keyname') || e.key === keys[i].getAttribute('lowerCaseName')) && e.key !== 'Alt') {
       keys[i].classList.add('active');
     }
-    if (e.code == 'Tab') {
+    if (e.code === 'Tab') {
       tab.classList.add('active');
     }
-    if (e.code == 'Delete') {
+    if (e.code === 'Delete') {
       del.classList.add('active');
     }
-    if (e.code == 'Backspace') {
+    if (e.code === 'Backspace') {
       backspace.classList.add('active');
     }
-    if (e.code == 'CapsLock') {
+    if (e.code === 'CapsLock') {
       capslock.classList.add('active');
     }
-    if (e.code == 'Enter') {
+    if (e.code === 'Enter') {
       enter.classList.add('active');
     }
-    if (e.code == 'Space') {
+    if (e.code === 'Space') {
       space.classList.add('active');
     }
-    if (e.code == 'ShiftLeft') {
+    if (e.code === 'ShiftLeft') {
       keyShiftRight.classList.remove('active');
     }
-    if (e.code == 'ShiftRight') {
+    if (e.code === 'ShiftRight') {
       keyShiftLeft.classList.remove('active');
     }
-    if (e.code == 'ArrowUp') {
+    if (e.code === 'ArrowUp') {
       keyArrowUp.classList.add('active');
     }
-    if (e.code == 'ArrowLeft') {
+    if (e.code === 'ArrowLeft') {
       keyArrowLeft.classList.add('active');
     }
-    if (e.code == 'ArrowDown') {
+    if (e.code === 'ArrowDown') {
       keyArrowDown.classList.add('active');
     }
-    if (e.code == 'ArrowRight') {
+    if (e.code === 'ArrowRight') {
       keyArrowRight.classList.add('active');
     }
-    if (e.code == 'ControlLeft') {
+    if (e.code === 'ControlLeft') {
       keyCtrlLeft.classList.add('active');
     }
-    if (e.code == 'ControlRight') {
+    if (e.code === 'ControlRight') {
       keyCtrlRight.classList.add('active');
     }
-    if (e.code == 'AltLeft') {
+    if (e.code === 'AltLeft') {
       keyAltLeft.classList.add('active');
     }
-    if (e.code == 'AltRight') {
+    if (e.code === 'AltRight') {
       keyAltRight.classList.add('active');
     }
-    if (e.code == 'MetaLeft') {
+    if (e.code === 'MetaLeft') {
       keyWin.classList.add('active');
     }
   }
-}
-)
-window.addEventListener('keyup', function (e) {
-  for (let i = 0; i < keys.length; i++) {
-    if (e.key == keys[i].getAttribute('keyname') || e.key == keys[i].getAttribute('lowerCaseName')) {
+});
+window.addEventListener('keyup', (e) => {
+  for (let i = 0; i < keys.length; i += 1) {
+    if (e.key === keys[i].getAttribute('keyname') || e.key === keys[i].getAttribute('lowerCaseName')) {
       keys[i].classList.remove('active');
     }
-    if (e.code == 'Tab') {
+    if (e.code === 'Tab') {
       tab.classList.remove('active');
     }
-    if (e.code == 'Delete') {
+    if (e.code === 'Delete') {
       del.classList.remove('active');
     }
-    if (e.code == 'Backspace') {
+    if (e.code === 'Backspace') {
       backspace.classList.remove('active');
     }
-    if (e.code == 'CapsLock') {
+    if (e.code === 'CapsLock') {
       capslock.classList.remove('active');
     }
-    if (e.code == 'Enter') {
+    if (e.code === 'Enter') {
       enter.classList.remove('active');
     }
-    if (e.code == 'Space') {
+    if (e.code === 'Space') {
       space.classList.remove('active');
     }
-    if (e.code == 'ArrowUp') {
+    if (e.code === 'ArrowUp') {
       keyArrowUp.classList.remove('active');
     }
-    if (e.code == 'ArrowLeft') {
+    if (e.code === 'ArrowLeft') {
       keyArrowLeft.classList.remove('active');
     }
-    if (e.code == 'ArrowDown') {
+    if (e.code === 'ArrowDown') {
       keyArrowDown.classList.remove('active');
     }
-    if (e.code == 'ArrowRight') {
+    if (e.code === 'ArrowRight') {
       keyArrowRight.classList.remove('active');
     }
-    if (e.code == 'ControlLeft') {
+    if (e.code === 'ControlLeft') {
       keyCtrlLeft.classList.remove('active');
     }
-    if (e.code == 'ControlRight') {
+    if (e.code === 'ControlRight') {
       keyCtrlRight.classList.remove('active');
     }
-    if (e.code == 'AltLeft') {
+    if (e.code === 'AltLeft') {
       keyAltLeft.classList.remove('active');
     }
-    if (e.code == 'AltRight') {
+    if (e.code === 'AltRight') {
       keyAltRight.classList.remove('active');
     }
-    if (e.code == 'MetaLeft') {
+    if (e.code === 'MetaLeft') {
       keyWin.classList.remove('active');
     }
   }
-}
-
-)
+});
