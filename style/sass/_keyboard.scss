@@ -1,6 +1,25 @@
-.keyboard_wrapper {
-  max-width: 1050px;
+.heading {
+  margin-bottom: 20px;
+  color: rgb(123, 123, 123);
+}
+
+.textarea {
   width: 100%;
+  margin-bottom: 40px;
+  border: none;
+  background-color: #e7e7e7;
+  padding: 15px;
+  font-size: 20px;
+  outline: none;
+  transition: box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.textarea:focus {
+  box-shadow: 1px 1px 5px rgb(61, 37, 37, 0.4);
+}
+
+.keyboard__wrapper {
   background-color: #e7e7e7;
   overflow: hidden;
   position: relative;
@@ -21,10 +40,42 @@
   margin: 4px;
   transition: .2s;
   z-index: 5;
+  cursor: pointer;
+}
+
+.keys.active {
+  background-color: #333;
+  color: #fff;
 }
 
 .keys--backspace {
   width: 120px;
   flex-grow: 2;
 
+}
+
+.keys--capslock {
+  width: 122px;
+  flex-grow: 2;
+}
+
+.keys--enter {
+  width: 120px;
+  flex-grow: 2;
+}
+
+.keys--shift {
+  width: 122px;
+  flex-grow: 2;
+}
+
+.keys--space {
+  width: 456px;
+  flex-grow: 2;
+}
+
+.info {
+  order: 2;
+  margin-top: 20px;
+  line-height: 30px;
 }
