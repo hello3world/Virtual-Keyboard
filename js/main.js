@@ -43,7 +43,7 @@ const firstRowChars = ['`',
 // create div with class keys and fill first row of keyboard
 for (let i = 0; i < firstRowChars.length; i += 1) {
   const key = document.createElement('div');
-  key.className = 'keys';
+  key.className = 'keys alpha content';
   key.textContent = firstRowChars[i];
 
   switch (firstRowChars[i]) {
@@ -80,7 +80,7 @@ const secondRowChars = ['Tab',
 // fill second row of keyboard
 for (let i = 0; i < secondRowChars.length; i += 1) {
   const key = document.createElement('div');
-  key.className = 'keys';
+  key.className = 'keys alpha content';
   key.textContent = secondRowChars[i];
 
   switch (secondRowChars[i]) {
@@ -119,7 +119,7 @@ const thirdRowChars = ['Caps Lock',
 // fill third row of keyboard
 for (let i = 0; i < thirdRowChars.length; i += 1) {
   const key = document.createElement('div');
-  key.className = 'keys';
+  key.className = 'keys alpha content';
   key.textContent = thirdRowChars[i];
 
   switch (thirdRowChars[i]) {
@@ -158,7 +158,7 @@ const fourthRowChars = ['Shift-left',
 // fill fourth row of keyboard
 for (let i = 0; i < fourthRowChars.length; i += 1) {
   const key = document.createElement('div');
-  key.className = 'keys';
+  key.className = 'keys alpha content';
   if (fourthRowChars[i] === 'Shift-left' || fourthRowChars[i] === 'Shift-right') {
     key.innerHTML = 'Shift';
   } else {
@@ -263,7 +263,8 @@ const keys = document.querySelectorAll('.keys');
 
 // add new attribute keyname for elements
 for (let i = 0; i < keys.length; i += 1) {
-  keys[i].setAttribute('keyname', keys[i].innerText);
+  keys[i].setAttribute('keyname', keys[i].textContent);
+  keys[i].setAttribute('upperCaseName', keys[i].textContent.toUpperCase());
 }
 
 // create elements for special key
@@ -284,9 +285,10 @@ const keyCtrlRight = document.querySelector('.keys--ctrl-right');
 const keyAltLeft = document.querySelector('.keys--alt-left');
 const keyAltRight = document.querySelector('.keys--alt-right');
 const keyWin = document.querySelector('.keys--win');
+// create Listener for Event "keydown"
 window.addEventListener('keydown', (e) => {
   for (let i = 0; i < keys.length; i += 1) {
-    if ((e.key === keys[i].getAttribute('keyname') || e.key === keys[i].getAttribute('lowerCaseName')) && e.key !== 'Alt') {
+    if ((e.key === keys[i].getAttribute('keyname') || e.key === keys[i].getAttribute('upperCaseName')) && e.key !== 'Alt') {
       keys[i].classList.add('active');
     }
     if (e.code === 'Tab') {
@@ -342,9 +344,10 @@ window.addEventListener('keydown', (e) => {
     }
   }
 });
+// create Listener for Event "keyup"
 window.addEventListener('keyup', (e) => {
   for (let i = 0; i < keys.length; i += 1) {
-    if (e.key === keys[i].getAttribute('keyname') || e.key === keys[i].getAttribute('lowerCaseName')) {
+    if (e.key === keys[i].getAttribute('keyname') || e.key === keys[i].getAttribute('upperCaseName')) {
       keys[i].classList.remove('active');
     }
     if (e.code === 'Tab') {
@@ -392,5 +395,49 @@ window.addEventListener('keyup', (e) => {
     if (e.code === 'MetaLeft') {
       keyWin.classList.remove('active');
     }
+  }
+});
+// click
+// CAPSLOCK
+const alphabet = document.querySelectorAll('.alpha');
+let checkCaps = false;
+const caps = function () {
+  if (checkCaps === false) {
+    for (let i = 0; i < alphabet.length; i += 1) {
+      const getAlpha = alphabet[i].textContent;
+      const up = getAlpha.toUpperCase();
+      alphabet[i].textContent = up;
+    }
+    checkCaps = true;
+  } else {
+    for (let i = 0; i < alphabet.length; i += 1) {
+      const getAlpha = alphabet[i].textContent;
+      const low = getAlpha.toLowerCase();
+      alphabet[i].textContent = low;
+    }
+    checkCaps = false;
+  }
+};
+// Event listener
+window.addEventListener('click', (e) => {
+  if (e.target.classList.contains('keys')) {
+    if (e.target.classList.contains('keys--space')) {
+      textarea.value += ' ';
+    }
+    if (e.target.classList.contains('keys--capslock')) {
+      caps();
+    }
+    if (e.target.classList.contains('content')) {
+      const getContent = e.target.textContent;
+      textarea.value += getContent;
+    }
+    if (e.target.classList.contains('keys--backspace')) {
+      textarea.value = textarea.value.substring(
+        0,
+        textarea.value.length - 1,
+      );
+    }
+  } else {
+    //
   }
 });
