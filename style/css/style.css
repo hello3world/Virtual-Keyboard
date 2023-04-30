@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -6,32 +7,50 @@
 }
 
 body {
+  height: 100vh;
   font-family: "Lato", sans-serif;
   transition: 0.2s;
-  background-color: #f2f1f1;
+  background-color: rgb(199, 218, 205);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
 }
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-grow: 1;
   max-width: 1020px;
   width: 100%;
-  height: 100vh;
   flex-direction: column;
   margin: 0 auto;
 }
 
+.header {
+  min-width: 100%;
+  background: rgb(92, 92, 92);
+  margin-bottom: 30px;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .heading {
-  margin-bottom: 20px;
-  color: rgb(123, 123, 123);
+  color: #fff;
 }
 
 .textarea {
   width: 100%;
   margin-bottom: 40px;
   border: none;
-  background-color: #e7e7e7;
+  background-color: rgba(255, 255, 255, 0.5);
   padding: 15px;
   font-size: 20px;
   outline: none;
@@ -45,10 +64,32 @@ body {
 }
 
 .keyboard__wrapper {
-  background-color: #e7e7e7;
   overflow: hidden;
   position: relative;
   order: 2;
+}
+
+.footer {
+  min-width: 100%;
+  background: rgb(92, 92, 92);
+  margin-top: 30px;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer a:nth-child(1) {
+  margin-right: 45%;
+}
+
+.footer_img-git,
+.footer_link-img-rs {
+  max-height: 50px;
+}
+
+.footer_link-img-rs {
+  filter: invert(1);
 }
 
 .keyboard__row {
@@ -58,7 +99,7 @@ body {
 .keys {
   width: 60px;
   height: 60px;
-  background-color: #fff;
+  background-color: rgb(122, 156, 135);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -67,11 +108,14 @@ body {
   z-index: 5;
   cursor: pointer;
   border-radius: 5px;
+  color: #fff;
+  border: 1px solid #448744;
 }
 
 .keys.active {
-  background-color: #333;
+  background-color: rgb(92, 92, 92);
   color: #fff;
+  border: 1px solid #272927;
 }
 
 .keys--backspace {
@@ -79,20 +123,10 @@ body {
   flex-grow: 2;
   transition: 0.2s;
 }
-.keys--backspace:hover {
-  background-color: #333;
-  color: #fff;
-  transition: 0.2s;
-}
 
 .keys--capslock {
   width: 122px;
   flex-grow: 2;
-  transition: 0.2s;
-}
-.keys--capslock:hover {
-  background-color: #333;
-  color: #fff;
   transition: 0.2s;
 }
 
@@ -111,13 +145,9 @@ body {
   flex-grow: 2;
   transition: 0.2s;
 }
-.keys--space:hover {
-  background-color: #333;
-  color: #fff;
-  transition: 0.2s;
-}
 
 .info {
+  text-align: center;
   order: 2;
   margin-top: 20px;
   line-height: 30px;
@@ -126,8 +156,23 @@ body {
 .alpha {
   transition: 0.2s;
 }
+
+.keys--capslock:hover,
+.keys--backspace:hover,
+.keys--enter:hover,
+.keys--space:hover,
 .alpha:hover {
-  background-color: #333;
+  background-color: rgb(92, 92, 92);
   color: #fff;
+  transition: 0.2s;
+  border: 1px solid #272927;
+}
+
+.keys--capslock:active,
+.keys--backspace:active,
+.keys--enter:active,
+.keys--space:active,
+.alpha:active {
+  background-color: rgb(58, 58, 58);
   transition: 0.2s;
 }
