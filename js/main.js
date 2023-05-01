@@ -3,7 +3,6 @@
 import changeBackgroundColor from './modules/changeBackgroundColor.js';
 
 changeBackgroundColor();
-
 // create div with class wrapper
 const wrapper = document.createElement('div');
 wrapper.className = 'wrapper';
@@ -64,7 +63,13 @@ let keyboardKeys = document.createElement('div');
 keyboardKeys.className = 'keyboard__keys';
 keyboardWrapper.append(keyboardKeys);
 // create row in keyboard
-let chars = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del', 'Caps Lock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'Enter', 'Shift-left', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '&#9650;', 'Shift-right', 'Ctrl-left', 'Win', 'Alt-left', ' ', 'Alt-right', '&#9668;', '&#9660;', '&#9658;', 'Ctrl-right'];
+let checkLang = localStorage.getItem('checkLang');
+let chars;
+if (checkLang === undefined || checkLang === 'false') {
+  chars = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del', 'Caps Lock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'Enter', 'Shift-left', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '&#9650;', 'Shift-right', 'Ctrl-left', 'Win', 'Alt-left', ' ', 'Alt-right', '&#9668;', '&#9660;', '&#9658;', 'Ctrl-right'];
+} else if (checkLang === 'true') {
+  chars = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '-', '=', 'Backspace', 'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\', 'Del', 'Caps Lock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter', 'Shift-left', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '/', '&#9650;', 'Shift-right', 'Ctrl-left', 'Win', 'Alt-left', ' ', 'Alt-right', '&#9668;', '&#9660;', '&#9658;', 'Ctrl-right'];
+}
 let keys; // key elements
 let alphabet; // for caps
 
@@ -316,25 +321,26 @@ const caps = () => {
 };
 
 // change language
-let checkLang = false;
 function switchRusLanguage() {
   checkCaps = false; // if change lang with big letter (caps)
-  if (checkLang === false) {
+  if (checkLang === undefined || checkLang === 'false') {
     keyboardKeys.remove();
     keyboardKeys = document.createElement('div');
     keyboardKeys.className = 'keyboard__keys';
     keyboardWrapper.append(keyboardKeys);
     chars = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '-', '=', 'Backspace', 'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\', 'Del', 'Caps Lock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter', 'Shift-left', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '/', '&#9650;', 'Shift-right', 'Ctrl-left', 'Win', 'Alt-left', ' ', 'Alt-right', '&#9668;', '&#9660;', '&#9658;', 'Ctrl-right'];
     createKeyBoard();
-    checkLang = true;
-  } else {
+    localStorage.setItem('checkLang', 'true');
+    checkLang = localStorage.getItem('checkLang');
+  } else if (checkLang === 'true') {
     keyboardKeys.remove();
     keyboardKeys = document.createElement('div');
     keyboardKeys.className = 'keyboard__keys';
     keyboardWrapper.append(keyboardKeys);
     chars = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del', 'Caps Lock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'Enter', 'Shift-left', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '&#9650;', 'Shift-right', 'Ctrl-left', 'Win', 'Alt-left', ' ', 'Alt-right', '&#9668;', '&#9660;', '&#9658;', 'Ctrl-right'];
     createKeyBoard();
-    checkLang = false;
+    localStorage.setItem('checkLang', 'false');
+    checkLang = localStorage.getItem('checkLang');
   }
 }
 
