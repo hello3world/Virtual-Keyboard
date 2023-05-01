@@ -323,7 +323,7 @@ const caps = () => {
 // change language
 function switchRusLanguage() {
   checkCaps = false; // if change lang with big letter (caps)
-  if (checkLang === undefined || checkLang === 'false') {
+  if (checkLang === null || checkLang === undefined || checkLang === 'false') {
     keyboardKeys.remove();
     keyboardKeys = document.createElement('div');
     keyboardKeys.className = 'keyboard__keys';
