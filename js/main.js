@@ -1,8 +1,13 @@
+/* eslint-disable import/extensions */
+// test module
+import changeBackgroundColor from './modules/changeBackgroundColor.js';
+
+changeBackgroundColor();
+
 // create div with class wrapper
 const wrapper = document.createElement('div');
 wrapper.className = 'wrapper';
 document.body.append(wrapper);
-
 // create header
 const header = document.createElement('header');
 header.className = 'header';
@@ -54,7 +59,6 @@ const imgRs = document.createElement('img');
 imgRs.className = 'footer_img-git';
 imgRs.src = '/assets/images/rs_school-og.png';
 linkRs.append(imgRs);
-
 // create div with class keyboard__keys
 let keyboardKeys = document.createElement('div');
 keyboardKeys.className = 'keyboard__keys';
@@ -65,7 +69,7 @@ let keys; // key elements
 let alphabet; // for caps
 
 // create keyboard
-function createKeyBoard() {
+const createKeyBoard = () => {
   // create div with class keyboard__row
   const keyboardRow = document.createElement('div'); // first row
   keyboardRow.className = 'keyboard__row';
@@ -226,7 +230,7 @@ function createKeyBoard() {
     keys[i].setAttribute('keyname', keys[i].textContent);
     keys[i].setAttribute('upperCaseName', keys[i].textContent.toUpperCase());
   }
-}
+};
 
 createKeyBoard();
 
@@ -261,7 +265,6 @@ window.addEventListener('keydown', (e) => {
       keyShiftRight, keyArrowUp, keyArrowLeft,
       keyArrowDown, keyArrowRight, keyCtrlLeft,
       keyCtrlRight, keyAltLeft, keyAltRight, keyWin];
-
     for (let j = 0; j < specialKey.length - 1; j += 1) {
       if (e.code === specialKey[j]) {
         specialKeyElements[j].classList.add('active');
@@ -294,7 +297,7 @@ window.addEventListener('keyup', (e) => {
 // Events with click
 // Caps Lock
 let checkCaps = false;
-function caps() {
+const caps = () => {
   if (checkCaps === false) {
     for (let i = 0; i < alphabet.length; i += 1) {
       const getAlpha = alphabet[i].textContent;
@@ -310,7 +313,7 @@ function caps() {
     }
     checkCaps = false;
   }
-}
+};
 
 // change language
 let checkLang = false;

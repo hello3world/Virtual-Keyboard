@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +9,7 @@ body {
   height: 100vh;
   font-family: "Lato", sans-serif;
   transition: 0.2s;
-  background-color: rgb(199, 218, 205);
+  background-color: black;
 }
 
 .wrapper {
@@ -58,7 +57,6 @@ body {
   cursor: pointer;
   resize: none;
 }
-
 .textarea:focus {
   box-shadow: 1px 1px 5px rgba(61, 37, 37, 0.4);
 }
@@ -78,16 +76,12 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 .footer a:nth-child(1) {
   margin-right: 45%;
 }
-
-.footer_img-git,
-.footer_link-img-rs {
+.footer_img-git, .footer_link-img-rs {
   max-height: 50px;
 }
-
 .footer_link-img-rs {
   filter: invert(1);
 }
@@ -167,7 +161,6 @@ body {
   transition: 0.2s;
   border: 1px solid #272927;
 }
-
 .keys--capslock:active,
 .keys--backspace:active,
 .keys--enter:active,
