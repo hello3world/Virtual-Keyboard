@@ -47,7 +47,7 @@ footer.append(linkImg);
 // create img-git for footer
 const imgGit = document.createElement('img');
 imgGit.className = 'footer_img-git';
-imgGit.src = '/assets/images/git.png';
+imgGit.src = 'assets/images/git.png';
 linkImg.append(imgGit);
 // create link-RS for footer
 const linkRs = document.createElement('a');
@@ -57,7 +57,7 @@ footer.append(linkRs);
 // create img-git for footer
 const imgRs = document.createElement('img');
 imgRs.className = 'footer_img-git';
-imgRs.src = '/assets/images/rs_school-og.png';
+imgRs.src = 'assets/images/rs_school-og.png';
 linkRs.append(imgRs);
 // create div with class keyboard__keys
 let keyboardKeys = document.createElement('div');
