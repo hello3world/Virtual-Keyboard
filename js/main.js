@@ -65,7 +65,7 @@ keyboardWrapper.append(keyboardKeys);
 // create row in keyboard
 let checkLang = localStorage.getItem('checkLang');
 let chars;
-if (checkLang === undefined || checkLang === 'false') {
+if (checkLang === null || checkLang === undefined || checkLang === 'false') {
   chars = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '-', '=', 'Backspace', 'Tab', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'Del', 'Caps Lock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', '\'', 'Enter', 'Shift-left', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '&#9650;', 'Shift-right', 'Ctrl-left', 'Win', 'Alt-left', ' ', 'Alt-right', '&#9668;', '&#9660;', '&#9658;', 'Ctrl-right'];
 } else if (checkLang === 'true') {
   chars = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '-', '=', 'Backspace', 'Tab', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\', 'Del', 'Caps Lock', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', 'Enter', 'Shift-left', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '/', '&#9650;', 'Shift-right', 'Ctrl-left', 'Win', 'Alt-left', ' ', 'Alt-right', '&#9668;', '&#9660;', '&#9658;', 'Ctrl-right'];
